@@ -149,7 +149,12 @@ useEffect(() => {
     </a>
   </nav>
 
-  <a className="resume-btn" href="/resume.pdf">
+  <a
+  className="resume-btn"
+  href="/resume.pdf"
+  target="_blank"
+  rel="noreferrer"
+  >
     이력서 다운로드
   </a>
 
@@ -208,15 +213,23 @@ useEffect(() => {
                 </a>
               </div>
 
-              <div className="hero-downloads">
-                <a href="#" className="download-link">
-                  이력서.pdf
-                </a>
+             <div className="hero-downloads">
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                이력서.pdf
+              </a>
 
-                <a href="#" className="download-link">
-                  경력기술서.pdf
-                </a>
-              </div>
+              <a
+                href="/career-description.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                경력기술서.pdf
+              </a>
+            </div>
             </div>
 
             <div className="hero-visual">

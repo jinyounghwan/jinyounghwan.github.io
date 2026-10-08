@@ -175,10 +175,39 @@
 }
 
 .hero-downloads {
-  display: flex;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 408px;
+  margin-top: 12px;
+}
 
-  margin-top: 19px;
+.hero-downloads a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 44px;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+
+  color: #dfe9e6;
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  background: rgba(255, 255, 255, 0.02);
+
+  transition: 0.2s ease;
+}
+
+.hero-downloads a:hover {
+  border-color: #55e0be;
+  color: #55e0be;
+  background: rgba(85, 224, 190, 0.06);
 }
 
 .download-link {
@@ -2061,11 +2090,12 @@
   }
 
   .hero-downloads {
-    margin-top: 18px;
-    gap: 18px;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    max-width: 100%;
+    margin-top: 14px;
   }
-
+  
   .hero-meta {
     display: none;
   }
