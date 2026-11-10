@@ -21,21 +21,6 @@ import {
 } from 'react-icons/fa'
 
 
-const techGroups = [
-  {
-    title: 'Core',
-    items: ['Java', 'Spring Boot', 'MySQL / Oracle'],
-  },
-  {
-    title: 'Integration',
-    items: ['Batch', 'API Integration', 'Data Sync'],
-  },
-  {
-    title: 'Infrastructure',
-    items: ['Linux', 'Nginx', 'AWS Lightsail'],
-  },
-]
-
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [menuOpen, setMenuOpen] = useState(false)
@@ -91,7 +76,7 @@ useEffect(() => {
     <span className="logo-role">Backend Developer</span>
   </div>
 
-  <nav className={`nav ${menuOpen ? 'open' : ''}`}>
+  <nav id="site-nav" aria-label="주 메뉴" className={`nav ${menuOpen ? 'open' : ''}`}>
     <a
       href="#home"
       className={activeSection === 'home' ? 'active' : ''}
@@ -161,7 +146,8 @@ useEffect(() => {
   <button
     className={`menu-toggle ${menuOpen ? 'active' : ''}`}
     type="button"
-    aria-label="메뉴 열기"
+    aria-label={menuOpen ? '메뉴 닫기' : '메뉴 열기'}
+    aria-controls="site-nav"
     aria-expanded={menuOpen}
     onClick={() => setMenuOpen((prev) => !prev)}
   >
@@ -177,12 +163,12 @@ useEffect(() => {
             <div className="hero-copy">
               <div className="availability-badge">
                 <span className="status-dot" />
-                AVAILABLE FOR OPPORTUNITIES
+                BACKEND DEVELOPER
               </div>
 
-              <h1>진영환</h1>
+              <h1>Build <em>Reliable</em><br />Backend Systems<span>.</span></h1>
 
-              <p className="hero-role">Backend Developer</p>
+              <p className="hero-role">진영환 · Backend Developer</p>
 
               <p className="hero-description">
                 Java와 Spring을 기반으로,
@@ -232,80 +218,39 @@ useEffect(() => {
             </div>
             </div>
 
-            <div className="hero-visual">
-              <div className="tech-panel">
-                <div className="tech-panel-header">
-                  <div>
-                    <p className="tech-kicker">ENGINEERING FOCUS</p>
-                    <h3>Backend Stack</h3>
-                  </div>
 
-                  <span className="tech-status">CURRENT</span>
-                </div>
+            <dl className="hero-facts">
+              <div><dt>Experience</dt><dd>4년 11개월</dd></div>
+              <div><dt>Main stack</dt><dd>Java · Spring</dd></div>
+              <div><dt>Focus</dt><dd>API · Batch · 운영</dd></div>
+            </dl>
+          </div>
 
-                <div className="tech-groups">
-                  {techGroups.map((group) => (
-                    <div className="tech-group" key={group.title}>
-                      <span className="tech-group-title">
-                        {group.title}
-                      </span>
-
-                      <div className="tech-tags">
-                        {group.items.map((item) => (
-                          <span className="tech-tag" key={item}>
-                            {item}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="tech-summary">
-                  <div>
-                    <strong>API</strong>
-                    <span>외부 시스템 연동</span>
-                  </div>
-
-                  <div>
-                    <strong>Batch</strong>
-                    <span>스케줄 기반 처리</span>
-                  </div>
-
-                  <div>
-                    <strong>Ops</strong>
-                    <span>배포 / 운영 경험</span>
-                  </div>
-                </div>
+          <div className="selected-work">
+            <div className="selected-work-heading">
+              <div>
+                <p className="eyebrow">FEATURED PROJECTS</p>
+                <h2>Selected Work</h2>
               </div>
+              <a href="#projects">전체 프로젝트 보기 →</a>
             </div>
-          </div>
-
-          <div className="hero-meta">
-            <div>
-              <strong>3+ Years</strong>
-              <span>Backend Experience</span>
+            <div className="selected-work-grid">
+              <a href="#project-mems">
+                <span>01 / 제조 시스템</span>
+                <h3>mEMS / mMES</h3>
+                <p>삼성SDI 제조 시스템 백엔드 개발 및 운영</p>
+              </a>
+              <a href="#project-healerbi">
+                <span>02 / 주문 · 배송</span>
+                <h3>Healerbi DNA</h3>
+                <p>넷마블 힐러비 주문·배송 시스템</p>
+              </a>
+              <a href="#project-parkeasy">
+                <span>03 / 개인 프로젝트</span>
+                <h3>ParkEasy</h3>
+                <p>공공데이터 기반 주차장 정보 서비스</p>
+              </a>
             </div>
-
-            <div>
-              <strong>Java / Spring</strong>
-              <span>Main Stack</span>
-            </div>
-
-            <div>
-              <strong>API / Batch</strong>
-              <span>Integration Experience</span>
-            </div>
-
-            <div>
-              <strong>AWS Lightsail</strong>
-              <span>Personal Deployment</span>
-            </div>
-          </div>
-
-          <div className="scroll-indicator">
-            <span>SCROLL DOWN</span>
-            <div className="scroll-line" />
           </div>
         </section>
 
@@ -673,7 +618,7 @@ useEffect(() => {
     </div>
 
     <div className="work-project-grid">
-      <article className="work-project-card reveal">
+      <article id="project-healerbi"  className="work-project-card reveal">
         <div className="project-top">
           <span className="project-company">드제이</span>
           <span className="project-kind">E-Commerce</span>
@@ -738,7 +683,7 @@ useEffect(() => {
         </div>
       </article>
 
-      <article className="work-project-card reveal">
+      <article id="project-mems"  className="work-project-card reveal">
         <div className="project-top">
           <span className="project-company">드제이</span>
           <span className="project-kind">Manufacturing</span>
@@ -844,7 +789,7 @@ useEffect(() => {
       <h3>Personal Project</h3>
     </div>
 
-    <article className="featured-project reveal">
+    <article id="project-parkeasy"  className="featured-project reveal">
       <div className="featured-project-copy">
         <div className="project-top">
           <span className="personal-badge">Featured</span>
@@ -1170,7 +1115,7 @@ useEffect(() => {
         <span className="contact-arrow">↗</span>
       </a>
 
-      <a href="mailto:YOUR_EMAIL" className="contact-item">
+      <a href="mailto:dudghksdl45@gmail.com" className="contact-item">
         <div>
           <span>Email</span>
           <strong>dudghksdl45@gmail.com</strong>
@@ -1178,7 +1123,7 @@ useEffect(() => {
         <span className="contact-arrow">↗</span>
       </a>
 
-      <a href="#" className="contact-item">
+      <a href="/resume.pdf" target="_blank" rel="noreferrer" className="contact-item">
         <div>
           <span>Resume</span>
           <strong>이력서 다운로드</strong>
@@ -1186,7 +1131,7 @@ useEffect(() => {
         <span className="contact-arrow">↓</span>
       </a>
 
-      <a href="#" className="contact-item">
+      <a href="/career-description.pdf" target="_blank" rel="noreferrer" className="contact-item">
         <div>
           <span>Career Description</span>
           <strong>경력기술서 다운로드</strong>

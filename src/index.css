@@ -7,7 +7,7 @@
     sans-serif;
 
   color: #f5f8fb;
-  background: #07111d;
+  background: #10110e;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -33,6 +33,12 @@ a {
 }
 
 ::selection {
-  color: white;
-  background: #167fff;
+  color: #151b07;
+  background: #c6ff58;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
